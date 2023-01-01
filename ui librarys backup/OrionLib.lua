@@ -31,11 +31,11 @@ local OrionLib = {
 local Icons = {}
 
 local Success, Response = pcall(function()
-	Icons = HttpService:JSONDecode(game:HttpGetAsync("https://raw.githubusercontent.com/moon606/Scripts/main/ui%20librarys%20backup/why.json")).icons
+	Icons = HttpService:JSONDecode(game:HttpGetAsync("https://raw.githubusercontent.com/evoincorp/lucideblox/master/src/modules/util/icons.json")).icons
 end)
 
 if not Success then
-	warn("\nOrion Library - Failed to load Feather Icons. Error code: " .. Response .. "\n")
+	warn("\nOrion Library - Failed to Feather Icons. Error code: " .. Response .. "\n")
 end	
 
 local function GetIcon(IconName)
@@ -717,9 +717,9 @@ function OrionLib:MakeWindow(WindowConfig)
 		LoadSequenceText:Destroy()
 	end 
 
-	if WindowConfig.IntroEnabled then
-		LoadSequence()
-	end	
+	--if WindowConfig.IntroEnabled then
+		--LoadSequence()
+	--end	
 
 	local TabFunction = {}
 	function TabFunction:MakeTab(TabConfig)
