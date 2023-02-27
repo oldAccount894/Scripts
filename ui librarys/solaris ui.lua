@@ -844,17 +844,7 @@ function SolarisLib:New(Config)
 			
 			-- why
 			
-			
-		local	function getImageID(ID)
-				local	objects = game:GetObjects("rbxassetid://"..ID)
-
-				local decal = objects[1]
-
-				if decal:IsA("Decal") then
-					return decal.Texture
-				end
-
-			end
+	
 			
 			
 			function ItemHold:image(imageID,callback)
@@ -862,7 +852,7 @@ function SolarisLib:New(Config)
 				
 				local imageButton = game:GetObjects("rbxassetid://12633412086")[1]
 				imageButton.Name = "element"
-				imageButton.Image = getImageID(imageID)
+				imageButton.Image = imageID
 				imageButton.Parent = Section
 				imageButton.MouseButton1Click:Connect(function()
 					callback()
