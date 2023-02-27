@@ -912,13 +912,9 @@ function SolarisLib:New(Config)
 			function ItemHold:image(imageID,callback)
 				
 				local justAimageID
-				local decalID = getAssetIDFromURI(imageID)
+				local decalID = imageID
 
-				if not decalID then
-
-					SolarisLib:Notification("SolarisLib",errorMessages[errors.malformedDecalID])
-				end
-				
+			
 				local success, result = convertToImageID(decalID)
 				wait()
 
