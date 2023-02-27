@@ -887,13 +887,9 @@ function SolarisLib:New(Config)
 					return false, errors.objectNotDecal
 				end
 
-				local imageID = getAssetIDFromURI(decal.Texture)
+				
 
-				if not imageID then
-					return false, errors.cantMatchIDFromTexture
-				end
-
-				return true, imageID
+				return true, decal.Texture
 			end
 
 			
