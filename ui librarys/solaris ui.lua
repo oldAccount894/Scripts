@@ -856,9 +856,9 @@ function SolarisLib:New(Config)
 			}
 
 
-			local function getAssetIDFromURI(uri)
-				return tonumber(uri:match("%d+"))
-			end
+			-- function getAssetIDFromURI(uri)
+				--return tonumber(uri:match("%d+"))
+			--end
 
 
 			local function convertToImageID(decalID)
