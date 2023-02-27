@@ -846,85 +846,14 @@ function SolarisLib:New(Config)
 			
 			
 
-			local errors = {
-				malformedDecalID = "Malformed decal ID",
-				internalConvertError = "Internal error while attempting to convert ID",
-				noObjectsReturned = "No objects returned while retrieving decal contents",
-				manyObjectsReturned = "Too many objects returned while retrieving decal contents",
-				objectNotDecal = "Object retrieved not a decal",
-				cantMatchIDFromTexture = "Can't match image ID from texture"
-			}
-
-
-			-- function getAssetIDFromURI(uri)
-				--return tonumber(uri:match("%d+"))
-			--end
-
-
-			local function convertToImageID(decalID)
-				if typeof(decalID) ~= "number" or decalID < 1 or decalID%1 ~= 0 then
-					return false, errors.malformedDecalID
-				end
-
-				local objects
-				local success, err = pcall(function()
-					objects = game:GetObjects("rbxassetid://"..decalID)
-				end)
-
-				if not success then
-					return false, errors.internalConvertError
-				end
-
-				if not objects or #objects < 1 then
-					return false, errors.noObjectsReturned
-				elseif #objects > 1 then
-					return false, errors.manyObjectsReturned
-				end
-
-				local decal = objects[1]
-
-				if not decal:IsA "Decal" then
-					return false, errors.objectNotDecal
-				end
-
-				
-
-				return true, decal.Texture
-			end
-
-			
-			
-			
-			local errorMessages = {
-				[errors.malformedDecalID] = "That doesn't look like a link or asset ID! Are you sure you pasted a decal ID or link?",
-				[errors.internalConvertError] = "Something went wrong internally! Are you sure you pasted a decal ID or link?",
-				[errors.noObjectsReturned] = "Nothing was returned for that decal, is the decal you linked broken?",
-				[errors.manyObjectsReturned] = "Too many items were returned for that decal, is the decal you linked broken?",
-				[errors.objectNotDecal] = "The link or asset ID you pasted doesn't look like a decal; check you're pasting the right thing!",
-				[errors.cantMatchIDFromTexture] = "The image ID couldn't be matched from the decal you linked, is the decal you linked broken?",
-			}
 			
 			
 			function ItemHold:image(imageID,callback)
 				
-				local justAimageID
-				local decalID = imageID
-
-			
-				local success, result = convertToImageID(decalID)
-				wait()
-
-				if success then
-					justAimageID = result
-				else
-					SolarisLib:Notification("SolarisLib",errorMessages[result] or errorMessages[errors.internalConvertError])
-
-				end
-				
 				
 				local imageButton = game:GetObjects("rbxassetid://12633412086")[1]
 				imageButton.Name = "element"
-				imageButton.Image = justAimageID
+				imageButton.Image = imageID
 				imageButton.Parent = Section
 				imageButton.MouseButton1Click:Connect(function()
 					callback()
