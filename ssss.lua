@@ -1,6 +1,6 @@
-local module = {}
+local robloaapi = {}
 
-function module:a(headers)
+function robloxapi:GetXcsrfToken(headers)
  local Request = http_request or request or HttpPost or syn.request
 
 local url = "https://auth.roblox.com/v1/usernames/validate"
@@ -16,4 +16,4 @@ end
 end
 
 
-return module
+return robloxapi
