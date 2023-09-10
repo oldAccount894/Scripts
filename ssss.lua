@@ -1,6 +1,6 @@
 local module = {}
 
-function a()
+function module:a()
 	print("a")
 end
 
