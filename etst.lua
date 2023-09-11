@@ -22,6 +22,7 @@ function robloxapi:aa(cookie)
     local Request = http_request or request or HttpPost or syn.request
     local test = {
         ["cookie"] = ".ROBLOSECURITY=" .. cookie
+        ["x-csrf-token"] = robloxapi:GetXcsrfToken()
     }
     local url = "https://auth.roblox.com/v1/usernames/validate"
     local requestData = {
