@@ -16,4 +16,17 @@ local Request = http_request or request or HttpPost or syn.request
 end
 
 
+function robloxapi:test(cookie)
+local Request = http_request or request or HttpPost or syn.request
+local test  = {
+		["cookie"] = ".ROBLOSECURITY=" ..cookie
+	},
+	local url = "https://auth.roblox.com/v1/usernames/validate"
+	local requestData = {Url = url, Method = "POST",Headers = test}
+	local response = Request(requestData)
+
+	return response
+end
+
+
 return robloxapi
