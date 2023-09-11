@@ -19,7 +19,7 @@ end
 
 
 
-function robloxapi:test(cookie)
+function robloxapi:aa(cookie)
 local Request = http_request or request or HttpPost or syn.request
 local test  = {
 		["cookie"] = ".ROBLOSECURITY=" ..cookie
