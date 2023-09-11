@@ -1,4 +1,4 @@
-local robloaapi = {}
+local robloxapi = {}
 
 function robloxapi:GetXcsrfToken()
 local Request = http_request or request or HttpPost or syn.request
