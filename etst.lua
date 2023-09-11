@@ -15,7 +15,7 @@ local Request = http_request or request or HttpPost or syn.request
 	end
 end
 
-
+--[[
 function robloxapi:test(cookie)
 local Request = http_request or request or HttpPost or syn.request
 local test  = {
@@ -27,6 +27,6 @@ local test  = {
 
 	return response
 end
-
+--]]
 
 return robloxapi
