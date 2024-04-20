@@ -4579,12 +4579,13 @@ A GUI panel that displays the game hierarchy.
 						list[i]:Clone().Parent = Selection.List[1].Parent or workspace
 					end
 				elseif option == "Delete" then
+					local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+
 					if not Option.Modifiable then return end
 					print("hi")
 					local list = Selection:Get()
-					for i = 1,#list do
-						pcall(delete,list[i])
-					end
+					Events:WaitForChild("OnDoorHit"):FireServer(list[i])
+
 					Selection:Set({})
 				elseif option == "Group" then
 					if not Option.Modifiable then return end
